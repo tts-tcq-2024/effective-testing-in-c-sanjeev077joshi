@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -16,6 +17,19 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
+    
+    const char* expectedMajor = "White";
+    const char* expectedMinor = "Blue";
+
+    assert((strcmp(expectedMajor, "White") == 0) && (strcmp("Orange", expectedMinor) == 0));
+
+    expectedMajor = "White";
+    expectedMinor = "Orange";
+    assert((strcmp(expectedMajor, "White") == 0) && (strcmp(expectedMinor, "Blue") == 0));
+
+    expectedMajor = "Red";
+    expectedMinor = "Orange";
+    
     printf("All is well (maybe!)\n");
     return 0;
 }
